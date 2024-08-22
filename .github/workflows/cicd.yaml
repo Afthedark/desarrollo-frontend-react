@@ -1,5 +1,5 @@
 name: Deploy to GitHub Pages
-#test
+
 on:
   push:
     branches: [ main ]
@@ -19,11 +19,10 @@ jobs:
         with:
           node-version: 20
       - name: Install Dependencies
-        # esto deberia ser ci
         run: npm i
       - name: Build Project
         run: npm run build
-- name: Upload artifacts
+      - name: Upload artifacts
         uses: actions/upload-pages-artifact@v3
         with:
           name: 'github-pages'
