@@ -12,7 +12,7 @@ const formReducer = (state = initialState, action) => {
         case SET_FORM_DATA : {
             return {
                 ...state,
-                formData:{
+                formData: {
                     ...state.formData,
                     ...action.payload,
                 }
