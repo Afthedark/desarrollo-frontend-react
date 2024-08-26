@@ -19,11 +19,11 @@ const routes = createBrowserRouter([
                 element: <LandingPage />,
             },
             {
-                path: '/products',
+                path: '/products/',
                 element: <Product />,
             },
             {
-                path: '/login',
+                path: '/login/',
                 element: <LoginForm />,
             },
         ]
