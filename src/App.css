@@ -135,7 +135,7 @@ form div input {
   z-index: 1000;
 }
 
-.notification-success {
+.notification-default {
   background-color: #efd6bd;
   color: #cc8259;
   padding: 2rem;
@@ -147,7 +147,19 @@ form div input {
   position: relative;
 }
 
-.close-btn-success {
+.notification-success {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 2rem;
+  border: 1px solid #c3e6cb;
+  border-radius: 0.5rem;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+}
+
+.close-btn-default {
   position: absolute;
   top: 0.5rem;
   right: 0.5rem;
@@ -157,18 +169,32 @@ form div input {
   font-size: 1.5rem;
   cursor: pointer;
 }
+
+.close-btn-success {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: transparent;
+  border: none;
+  color: #155724;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
 /* styles for modals */
 
 
-/*Styles for Navbar*/
 
+
+
+
+/*Styles for Navbar*/
 .navbar {
   background-color: #333; 
   color: white; 
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  padding: 30px 20px;
 }
 
 .navbar-links {
@@ -190,11 +216,10 @@ form div input {
   margin-left: auto;
   font-weight: bold;
 }
+/*Styles for Navbar*/
 
 
-/* Home default styles */
-
-
+/* Landing page styles */
 .module-container {
   font-family: Arial, sans-serif;
   max-width: 800px;
@@ -251,3 +276,5 @@ form div input {
   border-top: 1px solid #ddd;
   color: #888;
 }
+/* Landing page styles */
+

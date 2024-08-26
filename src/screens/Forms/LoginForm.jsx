@@ -1,12 +1,12 @@
 import useForm from "../../hooks/useForm";
 import { useSelector, useDispatch } from 'react-redux';
-import { saveFormData, clearFormData } from "../../redux/form/formActions";
+import { saveFormData, clearFormData } from "../../redux/form/formActions"
 import { motion } from 'framer-motion';
 import ModalInfo from "../../components/ModalInfo";
 import { useState } from "react";
 
 const LoginForm = () => {
-  const [values, handleChange, resetForm] = useForm({ username: '', email: '', password: '' }); // Ahora incluye resetForm
+  const [values, handleChange, resetForm] = useForm({ username: '', email: '', password: '' });
   const [showModalInfo, setShowModalInfo] = useState(false);
   const [modalMessage, setModalMessage] = useState('');
   const [showLogoutModal, setShowLogoutModal] = useState(false);
@@ -17,15 +17,21 @@ const LoginForm = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    if (!values.username || !values.email || !values.password) {
+      setModalMessage('Por favor, completa todos los campos.');
+      setShowModalInfo(true);
+      return;
+    }
+
     if (values.password === 'mod7ReactUSIP') {
       dispatch(saveFormData(values));
-      setModalMessage('Bienvenidos al Módulo 8');
+      setModalMessage(`Bienvenido ${values.username}`);
     } else {
       setModalMessage('Password incorrecto');
     }
 
     setShowModalInfo(true);
-  }
+  };
 
   const hideModalInfo = () => {
     setShowModalInfo(false);
@@ -36,9 +42,9 @@ const LoginForm = () => {
   };
 
   const handleLogout = () => {
-    dispatch(clearFormData()); // Limpia los datos de Redux
-    resetForm(); // Limpia los datos del formulario usando la nueva función resetForm
-    setShowLogoutModal(false); // Cierra el modal
+    dispatch(clearFormData());
+    resetForm();
+    setShowLogoutModal(false);
   };
 
   const handleShowLogoutModal = () => {
@@ -49,8 +55,7 @@ const LoginForm = () => {
     setShowLogoutModal(false);
   };
 
-  // Determinar si hay un usuario logueado
-  const isLoggedIn = form.formData.username && form.formData.email; // Cambiar esta lógica según tus necesidades
+  const isLoggedIn = form.formData.username && form.formData.email;
 
   return (
     <motion.div
@@ -62,6 +67,7 @@ const LoginForm = () => {
         visible={showModalInfo}
         message={modalMessage}
         onClose={hideModalInfo}
+        isWelcome={modalMessage.startsWith('Bienvenido')}
       />
       {showLogoutModal && (
         <ModalInfo
@@ -111,7 +117,7 @@ const LoginForm = () => {
           </div>
           <div className="button-container">
             <button type="submit">Submit</button>
-            {isLoggedIn && ( // Mostrar el botón de Logout solo si el usuario está logueado
+            {isLoggedIn && (
               <button type="button" onClick={handleShowLogoutModal} style={{ marginLeft: '10px' }}>
                 Logout
               </button>

@@ -17,7 +17,7 @@ const Navbar = () => {
                     <Link to="/products">Product</Link>
                 </li>
                 <li>
-                    <Link to="/login">LoginForm</Link>
+                    <Link to="/login">Forms</Link>
                 </li>
             </ul>
             <div className="navbar-user-info">
