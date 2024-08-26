@@ -50,7 +50,7 @@ const LoginForm = () => {
   };
 
   // Determinar si hay un usuario logueado
-  const isLoggedIn = form.formData.username && form.formData.email; // true o false
+  const isLoggedIn = form.formData.username && form.formData.email; // Cambiar esta lógica según tus necesidades
 
   return (
     <motion.div
