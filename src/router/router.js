@@ -1,4 +1,4 @@
-import { createBrowserRouter, createHashRouter } from 'react-router-dom';
+import { createBrowserRouter } from 'react-router-dom';
 
 import Default from "../screens/Default";
 import Product from "../screens/Product";
@@ -9,8 +9,7 @@ import App from "../App";
 
 const basename = process.env.NODE_ENV === 'production' ? '/desarrollo-frontend-react' : '/';
 
-//const routes = createBrowserRouter([
-const routes = createHashRouter([
+const routes = createBrowserRouter([
     {
         path: '/',
         element: <App />,
