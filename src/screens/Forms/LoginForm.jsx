@@ -118,9 +118,10 @@ const LoginForm = () => {
           <div className="button-container">
             <button type="submit">Submit</button>
             {isLoggedIn && (
-              <button type="button" onClick={handleShowLogoutModal} style={{ marginLeft: '10px' }}>
-                Logout
-              </button>
+              <a href="#" onClick={handleShowLogoutModal} style={{ color: 'Blue', textDecoration: 'underline', marginLeft : '10px' }}>
+              Logout
+            </a>
+            
             )}
           </div>
         </form>
